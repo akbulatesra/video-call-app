@@ -1,0 +1,15 @@
+.wrapper {
+  background-color: #f95232;
+  color: #ecf654;
+  position: fixed;
+  bottom: 0;
+  width: 50vw;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.icons {
+  display: flex;
+  gap: 30px;
+}
