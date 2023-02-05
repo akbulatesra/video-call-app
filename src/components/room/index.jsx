@@ -3,53 +3,51 @@ import { useEffect, useState } from 'react';
 import Participant from '../participant';
 import Footer from '../footer';
 
-const Room = (props) => {
-  const [remoteParticipants, setRemoteParticipants] = useState(
-    Array.from(props.room.participants.values())
-  );
-  useEffect(() => {
-    setRemoteParticipants(Array.from(props.room.participants.values()));
-  }, [props.room.participants]);
+const Room = ({ room, returnToLobby, ...props }) => {
+  const [state, setState] = useState({
+    remoteParticipants: Array.from(this.props.room.participants.values()),
+  });
 
   useEffect(() => {
-    // Add event listeners for future remote participants coming or going
-    props.room.on('participantConnected', (participant) =>
+    room.on('participantConnected', (participant) =>
       addParticipant(participant)
     );
-    props.room.on('participantDisconnected', (participant) =>
+    room.on('participantDisconnected', (participant) =>
       removeParticipant(participant)
     );
+
     window.addEventListener('beforeunload', leaveRoom);
 
     return () => {
-      props.room.off('participantConnected', (participant) =>
-        addParticipant(participant)
-      );
-      props.room.off('participantDisconnected', (participant) =>
-        removeParticipant(participant)
-      );
       window.removeEventListener('beforeunload', leaveRoom);
     };
-  }, []);
+  }, [room]);
 
-  const addParticipant = (participant) => {
+  function addParticipant(participant) {
     console.log(`${participant.identity} has joined the room.`);
-    setRemoteParticipants([...remoteParticipants, participant]);
-  };
 
-  const removeParticipant = (participant) => {
+    setState((prev) => ({
+      ...prev,
+      remoteParticipants: [...prev.remoteParticipants, participant],
+    }));
+  }
+
+  function removeParticipant(participant) {
     console.log(`${participant.identity} has left the room`);
-    setRemoteParticipants(
-      remoteParticipants.filter((p) => {
-        return p.identity !== participant.identity;
-      })
-    );
-  };
 
-  const leaveRoom = () => {
-    props.room.disconnect();
-    props.returnToLobby();
-  };
+    setState((prev) => ({
+      ...prev,
+      remoteParticipants: prev.remoteParticipants.filter(
+        (p) => p.identity !== participant.identity
+      ),
+    }));
+  }
+
+  function leaveRoom() {
+    room.disconnect();
+    returnToLobby();
+  }
+
   return (
     <div className={styles.room}>
       <div className={styles.navbar} onClick={leaveRoom}>
@@ -57,15 +55,17 @@ const Room = (props) => {
       </div>
       <div className={styles.participants}>
         <Participant
-          key={props.room.localParticipant.identity}
+          key={room.localParticipant.identity}
           localParticipant="true"
-          participant={props.room.localParticipant}
+          participant={room.localParticipant}
         />
-        {remoteParticipants.map((participant) => (
+        {state.remoteParticipants.map((participant) => (
           <Participant key={participant.identity} participant={participant} />
         ))}
       </div>
-
+      <button id="leaveRoom" onClick={leaveRoom}>
+        Leave Room
+      </button>
       <Footer />
     </div>
   );

@@ -1,24 +1,5 @@
 import styles from './styles.module.scss';
-const Button = ({ identity, setRoom }) => {
-  const { connect } = require('twilio-video');
-
-  const joinRoom = async () => {
-    try {
-      const response = await fetch(
-        `https://token-service-2-7678-dev.twil.io/token?identity=${identity}`
-      );
-      const data = await response.json();
-      const room = await connect(data.accessToken, {
-        name: 'cool-room',
-        audio: true,
-        video: true,
-      });
-
-      setRoom(room);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+const Button = ({ joinRoom }) => {
   return (
     <svg
       viewBox="45 60 400 320"

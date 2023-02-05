@@ -9,7 +9,7 @@ const Track = (props) => {
       ref.current.classList.add(props.track.kind);
       ref.current.appendChild(child);
     }
-  }, []);
+  }, [props.track]);
   return <div className={styles.track} ref={ref}></div>;
 };
 

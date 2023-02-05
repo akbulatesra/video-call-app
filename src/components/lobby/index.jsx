@@ -1,11 +1,8 @@
 import styles from './styles.module.scss';
 import Footer from '../footer';
-import { useState } from 'react';
 import Button from '../button';
 
-const Lobby = ({ setRoom }) => {
-  const [identity, setIdentity] = useState('');
-
+const Lobby = ({ joinRoom, updateIdentity, identity }) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.wrapperLeft}>
@@ -15,9 +12,9 @@ const Lobby = ({ setRoom }) => {
         <input
           value={identity}
           placeholder="What's your name?"
-          onChange={(e) => setIdentity(e.target.value)}
+          onChange={updateIdentity}
         />
-        <Button identity={identity} setRoom={setRoom} />
+        <Button identity={identity} joinRoom={joinRoom} />
         <Footer />
       </div>
       <img src="/main.jpg" alt="girl" className={styles.wrapperRight} />
