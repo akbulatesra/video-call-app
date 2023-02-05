@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Room from './Room';
+import Room from './components/room';
 import Lobby from './components/lobby';
 
 const App = () => {

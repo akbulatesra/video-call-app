@@ -1,6 +1,7 @@
 import styles from './styles.module.scss';
 import { useEffect, useState } from 'react';
-import Participant from './Participant';
+import Participant from '../participant';
+import Footer from '../footer';
 
 const Room = (props) => {
   const [remoteParticipants, setRemoteParticipants] = useState(
@@ -50,8 +51,8 @@ const Room = (props) => {
     props.returnToLobby();
   };
   return (
-    <div className="room">
-      <div className="participants">
+    <div className={styles.room}>
+      <div className={styles.participants}>
         <Participant
           key={props.room.localParticipant.identity}
           localParticipant="true"
@@ -64,6 +65,7 @@ const Room = (props) => {
       <button id="leaveRoom" onClick={leaveRoom}>
         Leave Room
       </button>
+      <Footer />
     </div>
   );
 };

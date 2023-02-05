@@ -18,7 +18,7 @@ const Lobby = ({ setRoom }) => {
       const room = await connect(data.accessToken, {
         name: 'cool-room',
         audio: true,
-        video: true,
+        video: { width: '640px' },
       });
 
       setRoom(room);

@@ -1,0 +1,23 @@
+.identity {
+  position: absolute;
+  left: 0px;
+  bottom: 15px;
+  color: white;
+  padding-left: 15px;
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+.participant {
+  box-sizing: border-box;
+  position: relative;
+  border-radius: 8px;
+  margin-left: 0.75vw;
+  margin-bottom: 0.75vw;
+  width: 23.5vw;
+  overflow: hidden;
+  height: 50vh;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  display: flex;
+  justify-content: center;
+}

@@ -10,7 +10,7 @@ const Track = (props) => {
       ref.current.appendChild(child);
     }
   }, []);
-  return <div className="track" ref={ref}></div>;
+  return <div className={styles.track} ref={ref}></div>;
 };
 
 export default Track;

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import styles from './styles.module.scss';
-import Track from './Track';
+import Track from '../track';
 const Participant = (props) => {
   const existingPublications = Array.from(props.participant.tracks.values());
   const existingTracks = existingPublications.map(
@@ -18,8 +18,8 @@ const Participant = (props) => {
     }
   }, []);
   return (
-    <div className="participant" id={props.participant.identity}>
-      <div className="identity">{props.participant.identity}</div>
+    <div className={styles.participant} id={props.participant.identity}>
+      <div className={styles.identity}>{props.participant.identity}</div>
       {tracks.map((track) => (
         <Track key={track} track={track} />
       ))}
