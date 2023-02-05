@@ -16,23 +16,23 @@ button:disabled {
 }
 
 @media (max-width: 1048px) {
-  .app {
-    padding: 1vw;
-  }
+  // .app {
+  //   padding: 1vw;
+  // }
 
-  .participant {
-    width: 47vw;
-    margin-top: 1vw;
-    margin-bottom: 1vw;
-    margin-left: 2vw;
-    height: 42vh;
-  }
+  // .participant {
+  //   width: 47vw;
+  //   margin-top: 1vw;
+  //   margin-bottom: 1vw;
+  //   margin-left: 2vw;
+  //   height: 42vh;
+  // }
 
-  @media (orientation: landscape) {
-    .participant {
-      width: 48vw;
-      margin-left: 1vw;
-      height: 96vh;
-    }
-  }
+  // @media (orientation: landscape) {
+  //   .participant {
+  //     width: 48vw;
+  //     margin-left: 1vw;
+  //     height: 96vh;
+  //   }
+  // }
 }
