@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Room from './components/room';
 import Lobby from './components/lobby';
+import './styles.module.scss';
 
 const App = () => {
   const [room, setRoom] = useState(null);
