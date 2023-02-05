@@ -12,12 +12,11 @@
   box-sizing: border-box;
   position: relative;
   border-radius: 8px;
-  margin-left: 0.75vw;
-  margin-bottom: 0.75vw;
-  width: 23.5vw;
+  width: 40vw;
   overflow: hidden;
   height: 50vh;
   -webkit-mask-image: -webkit-radial-gradient(white, black);
   display: flex;
   justify-content: center;
+  margin: 0.75vw;
 }

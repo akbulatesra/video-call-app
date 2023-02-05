@@ -3,3 +3,13 @@
   flex-wrap: wrap;
   width: 100%;
 }
+.navbar {
+  background-color: #f95232;
+  color: #ecf654;
+  width: 100vw;
+  height: 6vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  cursor: pointer;
+}

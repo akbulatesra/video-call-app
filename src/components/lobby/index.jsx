@@ -1,31 +1,10 @@
 import styles from './styles.module.scss';
 import Footer from '../footer';
 import { useState } from 'react';
+import Button from '../button';
 
 const Lobby = ({ setRoom }) => {
-  const { connect } = require('twilio-video');
-
   const [identity, setIdentity] = useState('');
-
-  const disabled = Boolean(!identity);
-
-  const joinRoom = async () => {
-    try {
-      const response = await fetch(
-        `https://token-service-2-7678-dev.twil.io/token?identity=${identity}`
-      );
-      const data = await response.json();
-      const room = await connect(data.accessToken, {
-        name: 'cool-room',
-        audio: true,
-        video: { width: '640px' },
-      });
-
-      setRoom(room);
-    } catch (err) {
-      console.log(err);
-    }
-  };
 
   return (
     <div className={styles.wrapper}>
@@ -38,9 +17,7 @@ const Lobby = ({ setRoom }) => {
           placeholder="What's your name?"
           onChange={(e) => setIdentity(e.target.value)}
         />
-        <button disabled={disabled} onClick={joinRoom}>
-          Join Room
-        </button>
+        <Button identity={identity} setRoom={setRoom} />
         <Footer />
       </div>
       <img src="/main.jpg" alt="girl" className={styles.wrapperRight} />

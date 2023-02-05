@@ -52,6 +52,9 @@ const Room = (props) => {
   };
   return (
     <div className={styles.room}>
+      <div className={styles.navbar} onClick={leaveRoom}>
+        Leave Room
+      </div>
       <div className={styles.participants}>
         <Participant
           key={props.room.localParticipant.identity}
@@ -62,9 +65,7 @@ const Room = (props) => {
           <Participant key={participant.identity} participant={participant} />
         ))}
       </div>
-      <button id="leaveRoom" onClick={leaveRoom}>
-        Leave Room
-      </button>
+
       <Footer />
     </div>
   );
