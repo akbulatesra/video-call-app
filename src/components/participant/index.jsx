@@ -3,9 +3,7 @@ import styles from './styles.module.scss';
 import Track from '../track';
 
 const Participant = (props) => {
-  const existingPublications = Array.from(
-    this.props.participant.tracks.values()
-  );
+  const existingPublications = Array.from(props.participant.tracks.values());
   const existingTracks = existingPublications.map(
     (publication) => publication.track
   );

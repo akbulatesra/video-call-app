@@ -5,7 +5,7 @@ import Footer from '../footer';
 
 const Room = ({ room, returnToLobby, ...props }) => {
   const [state, setState] = useState({
-    remoteParticipants: Array.from(this.props.room.participants.values()),
+    remoteParticipants: Array.from(room.participants.values()),
   });
 
   useEffect(() => {
