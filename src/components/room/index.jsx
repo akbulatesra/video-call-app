@@ -62,7 +62,11 @@ const Room = (props) => {
           participant={props.room.localParticipant}
         />
         {remoteParticipants.map((participant) => (
-          <Participant key={participant.identity} participant={participant} />
+          <Participant
+            key={participant.identity}
+            participant={participant}
+            localParticipant="true"
+          />
         ))}
       </div>
 
