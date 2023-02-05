@@ -11,7 +11,7 @@ const Button = ({ identity, setRoom }) => {
       const room = await connect(data.accessToken, {
         name: 'cool-room',
         audio: true,
-        video: { width: '640px' },
+        video: true,
       });
 
       setRoom(room);
