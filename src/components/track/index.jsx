@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import styles from './styles.module.scss';
+import './index.css';
 
 const Track = (props) => {
   const ref = useRef();
