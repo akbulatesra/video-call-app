@@ -4,11 +4,9 @@ import styles from './styles.module.scss';
 const Track = (props) => {
   const ref = useRef();
   const handleResize = (e) => {
-    document
-      .getElementsByClassName(`${styles.max}`)
-      .classList?.remove(`${styles.max}`);
-    e.target.classList.add(`${styles.max}`);
-    e.target.classList.remove(`${styles.min}`);
+    document.querySelectorAll('.max').classList?.remove('max');
+    e.target.classList.add('max');
+    e.target.classList.remove('min');
   };
   useEffect(() => {
     if (props.track !== null) {
