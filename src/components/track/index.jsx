@@ -13,7 +13,7 @@ const Track = (props) => {
       const child = props.track.attach();
       ref.current.classList.add(props.track.kind);
       ref.current.appendChild(child);
-      child.classList.add(`${styles.min}`);
+      child.classList.add('min');
     }
   }, [props.track]);
   return (
